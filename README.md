@@ -211,5 +211,3 @@ Examples:
 * XGBoost produced the best performance among all models.
 * SHAP explanations make the predictions interpretable for HR decision-making.
 * The project can support proactive retention strategies and reduce employee turnover.
-
-If you want this in PPT format or mini-project report format, I can help with that too.
