@@ -1,31 +1,34 @@
-# Initial deployment version - dependencies and model integration to be refined
 import streamlit as st
-import pickle
+import joblib
 import numpy as np
 
-model = pickle.load(open("attrition_model.pkl", "rb"))
+# Load model & scaler
+model = joblib.load('xgb_model.pkl')
+scaler = joblib.load('scaler.pkl')
 
-st.set_page_config(page_title="Employee Attrition Predictor", layout="centered")
+st.set_page_config(page_title="Employee Attrition Predictor")
 
-st.title("Employee Attrition Prediction App")
+st.title("💼 Employee Attrition Prediction")
+st.write("Enter employee details to predict attrition")
 
-age = st.number_input("Age", 18, 60, 30)
-monthly_income = st.number_input("Monthly Income", 1000, 50000, 5000)
-overtime = st.selectbox("OverTime", ["No", "Yes"])
+# --- Input fields ---
+age = st.slider("Age", 18, 60, 30)
+monthly_income = st.number_input("Monthly Income", 1000, 100000, 30000)
+job_satisfaction = st.slider("Job Satisfaction (1-4)", 1, 4, 3)
+years_at_company = st.slider("Years at Company", 0, 40, 5)
+work_life_balance = st.slider("Work Life Balance (1-4)", 1, 4, 3)
 
-overtime_value = 1 if overtime == "Yes" else 0
+# --- Convert to array ---
+input_data = np.array([[age, monthly_income, job_satisfaction, years_at_company, work_life_balance]])
 
-if st.button("Predict Attrition"):
+# Scale input
+input_scaled = scaler.transform(input_data)
 
-    input_data = np.zeros(30)
-
-    input_data[0] = age
-    input_data[15] = monthly_income
-    input_data[18] = overtime_value
-
-    prediction = model.predict([input_data])
+# --- Prediction ---
+if st.button("Predict"):
+    prediction = model.predict(input_scaled)
 
     if prediction[0] == 1:
-        st.error("High Risk: Employee may leave")
+        st.error("⚠️ Employee is likely to leave")
     else:
-        st.success("Low Risk: Employee likely to stay")
+        st.success("✅ Employee is likely to stay")
