@@ -1,5 +1,5 @@
-## Employee Attrition Prediction using HR Analytics
-### Project Overview
+# Employee Attrition Prediction using HR Analytics
+## Project Overview
 
 This project focuses on analyzing employee data to predict attrition (whether an employee will leave the company or not) using machine learning techniques. By identifying key factors influencing attrition, organizations can take proactive steps to improve employee retention.
 
@@ -9,18 +9,23 @@ Identify important factors affecting attrition
 Compare multiple machine learning models
 Provide insights for HR decision-making
 ## Dataset
-Dataset used: IBM HR Analytics Employee Attrition Dataset
-Features include:
-_Age
-_Job Role
-_Department
-_Monthly Income
-_Job Satisfaction
-Years at Company
-Overtime
-Work-Life Balance
-Target variable:
-Attrition (Yes/No)
+
+### Dataset Used:
+IBM HR Analytics Employee Attrition Dataset
+### Features
+The dataset includes various employee-related attributes such as:
+- Age
+- Job Role
+- Department
+- Monthly Income
+- Job Satisfaction
+- Years at Company
+- Overtime
+- Work-Life Balance
+### Target Variable
+Attrition
+Yes → Employee left the company
+No → Employee stayed
 ## Technologies Used
 Python
 Pandas & NumPy (Data Processing)
