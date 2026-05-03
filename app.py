@@ -1,41 +1,51 @@
-import streamlit as st
-import joblib
 import pandas as pd
+import joblib
 
-# Load trained pipeline
-model = joblib.load("attrition_pipeline.pkl")
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+from xgboost import XGBClassifier
 
-st.set_page_config(page_title="Employee Attrition Predictor")
+# Load dataset
+df = pd.read_csv("WA_Fn-UseC_-HR-Employee-Attrition.csv")
 
-st.title("💼 Employee Attrition Prediction")
-st.write("Enter employee details to predict attrition")
+# Clean column names (IMPORTANT 🔥)
+df.columns = df.columns.str.strip()
 
-# --- Inputs ---
-age = st.slider("Age", 18, 60, 30)
-monthly_income = st.number_input("Monthly Income", 1000, 100000, 30000)
-job_satisfaction = st.slider("Job Satisfaction (1-4)", 1, 4, 3)
-years_at_company = st.slider("Years at Company", 0, 40, 5)
-work_life_balance = st.slider("Work Life Balance (1-4)", 1, 4, 3)
+# Select features
+features = [
+    "Age",
+    "MonthlyIncome",
+    "JobSatisfaction",
+    "YearsAtCompany",
+    "WorkLifeBalance"
+]
 
-# Convert to DataFrame (🔥 IMPORTANT)
-input_df = pd.DataFrame({
-    "Age": [age],
-    "MonthlyIncome": [monthly_income],
-    "JobSatisfaction": [job_satisfaction],
-    "YearsAtCompany": [years_at_company],
-    "WorkLifeBalance": [work_life_balance]
-})
+X = df[features]
 
-# --- Prediction ---
-if st.button("Predict"):
-    prediction = model.predict(input_df)[0]
-    probability = model.predict_proba(input_df)[0][1]
+# Convert target
+y = df["Attrition"].map({"Yes": 1, "No": 0})
 
-    st.subheader("📊 Prediction Result")
+# Split
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
 
-    if prediction == 1:
-        st.error("⚠️ Employee is likely to leave")
-    else:
-        st.success("✅ Employee is likely to stay")
+# Pipeline
+pipeline = Pipeline([
+    ("scaler", StandardScaler()),
+    ("model", XGBClassifier(
+        n_estimators=50,
+        max_depth=3,
+        learning_rate=0.1,
+        random_state=42
+    ))
+])
 
-    st.write(f"📈 Probability of Attrition: **{probability:.2f}**")
+# Train
+pipeline.fit(X_train, y_train)
+
+# Save
+joblib.dump(pipeline, "attrition_pipeline.pkl")
+
+print("✅ Model saved successfully!")
