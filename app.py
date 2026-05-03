@@ -264,4 +264,39 @@ with col_left:
         </div>""", unsafe_allow_html=True)
 
 
+# ── Right Panel: Feature Importance ──────────────────────────
+with col_right:
+    st.markdown("<div class='section-header'>🔑 Top Attrition Drivers</div>", unsafe_allow_html=True)
+    st.caption("Global feature importance from XGBoost model")
+
+    if top_features:
+        max_imp = top_features[0][1]
+        for feat, imp in top_features:
+            pct = (imp / max_imp) * 100
+            st.markdown(f"""
+            <div style="margin-bottom:10px;">
+                <div style="display:flex; justify-content:space-between;">
+                    <span style="font-size:0.85rem; color:#37474f;">{feat}</span>
+                    <span style="font-size:0.8rem; color:#7986cb; font-weight:600;">{imp:.4f}</span>
+                </div>
+                <div class="imp-bar">
+                    <div class="imp-fill" style="width:{pct:.1f}%"></div>
+                </div>
+            </div>""", unsafe_allow_html=True)
+
+    st.markdown("---")
+    st.markdown("<div class='section-header'>📖 Model Information</div>", unsafe_allow_html=True)
+    st.markdown("**Algorithm:** XGBoost Classifier")
+    st.markdown("**Dataset:** IBM HR Analytics")
+    st.markdown("**Train/Test Split:** 80% / 20%")
+    st.markdown("**Validation:** 5-Fold Stratified CV")
+
+    st.markdown("---")
+    st.markdown("<div class='section-header'>⚠️ Ethical Note</div>", unsafe_allow_html=True)
+    st.caption(
+        "This tool assists HR professionals in identifying at-risk employees. "
+        "Predictions must never be the sole basis for employment decisions."
+    )
+
+
     
