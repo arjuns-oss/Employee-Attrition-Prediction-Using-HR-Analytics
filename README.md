@@ -63,12 +63,18 @@ Recall
 Confusion Matrix
 6. Model Explainability
 SHAP values used to interpret predictions
-## Results & Comparison
-Model	Accuracy
-Logistic Regression	~90%
-Decision Tree	~87%
-KNN	~91%
-Random Forest	~96%
-XGBoost	~95%
 
-Best Model: Random Forest (Highest Accuracy)
+## Results & Comparison
+
+| Model               | Accuracy |
+|--------------------|----------|
+| Logistic Regression | ~90%     |
+| Decision Tree       | ~87%     |
+| KNN                 | ~91%     |
+| Random Forest       | ~96%     |
+| XGBoost             | ~95%     |
+
+### ✅ Best Model: **Random Forest**
+- Achieved the highest accuracy (~96%)
+- Strong performance across different employee groups
+- Handles feature importance effectively
