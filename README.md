@@ -27,12 +27,18 @@ Attrition
 Yes → Employee left the company
 No → Employee stayed
 ## Technologies Used
-Python
-Pandas & NumPy (Data Processing)
-Matplotlib & Seaborn (Visualization)
-Scikit-learn (Machine Learning)
-XGBoost (Advanced Model)
-SHAP (Model Explainability)
+### Data Processing
+- Python
+- Pandas
+- NumPy
+### Data Visualization
+- Matplotlib
+- Seaborn
+### Machine Learning
+- Scikit-learn
+- XGBoost
+### Model Explainability
+- SHAP
 ## Methodology
 1. Data Preprocessing
 Handling missing values
