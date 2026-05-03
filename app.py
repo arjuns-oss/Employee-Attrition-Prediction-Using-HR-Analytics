@@ -1,34 +1,41 @@
 import streamlit as st
 import joblib
-import numpy as np
+import pandas as pd
 
-# Load model & scaler
-model = joblib.load('xgb_model.pkl')
-scaler = joblib.load('scaler.pkl')
+# Load trained pipeline
+model = joblib.load("attrition_pipeline.pkl")
 
 st.set_page_config(page_title="Employee Attrition Predictor")
 
 st.title("💼 Employee Attrition Prediction")
 st.write("Enter employee details to predict attrition")
 
-# --- Input fields ---
+# --- Inputs ---
 age = st.slider("Age", 18, 60, 30)
 monthly_income = st.number_input("Monthly Income", 1000, 100000, 30000)
 job_satisfaction = st.slider("Job Satisfaction (1-4)", 1, 4, 3)
 years_at_company = st.slider("Years at Company", 0, 40, 5)
 work_life_balance = st.slider("Work Life Balance (1-4)", 1, 4, 3)
 
-# --- Convert to array ---
-input_data = np.array([[age, monthly_income, job_satisfaction, years_at_company, work_life_balance]])
-
-# Scale input
-input_scaled = scaler.transform(input_data)
+# Convert to DataFrame (🔥 IMPORTANT)
+input_df = pd.DataFrame({
+    "Age": [age],
+    "MonthlyIncome": [monthly_income],
+    "JobSatisfaction": [job_satisfaction],
+    "YearsAtCompany": [years_at_company],
+    "WorkLifeBalance": [work_life_balance]
+})
 
 # --- Prediction ---
 if st.button("Predict"):
-    prediction = model.predict(input_scaled)
+    prediction = model.predict(input_df)[0]
+    probability = model.predict_proba(input_df)[0][1]
 
-    if prediction[0] == 1:
+    st.subheader("📊 Prediction Result")
+
+    if prediction == 1:
         st.error("⚠️ Employee is likely to leave")
     else:
         st.success("✅ Employee is likely to stay")
+
+    st.write(f"📈 Probability of Attrition: **{probability:.2f}**")
