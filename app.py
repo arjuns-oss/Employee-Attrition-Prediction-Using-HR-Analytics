@@ -216,4 +216,52 @@ with col_left:
         </div>""", unsafe_allow_html=True)
 
         st.markdown("<div style='height:10px'></div>", unsafe_allow_html=True)
+
+        # ── Risk Box ─────────────────────────────────────────
+        if risk_label == "High":
+            st.markdown(f"""
+            <div class="risk-high">
+                <h2>🔴 HIGH ATTRITION RISK — {prob*100:.1f}%</h2>
+                <p><strong>This employee has a high probability of leaving.</strong><br>
+                Immediate HR intervention is recommended.</p>
+            </div>""", unsafe_allow_html=True)
+
+        elif risk_label == "Medium":
+            st.markdown(f"""
+            <div class="risk-medium">
+                <h2>🟠 MEDIUM ATTRITION RISK — {prob*100:.1f}%</h2>
+                <p><strong>This employee shows some attrition signals.</strong><br>
+                Proactive monitoring and engagement is advised.</p>
+            </div>""", unsafe_allow_html=True)
+
+        else:
+            st.markdown(f"""
+            <div class="risk-low">
+                <h2>🟢 LOW ATTRITION RISK — {prob*100:.1f}%</h2>
+                <p><strong>This employee is likely to stay.</strong><br>
+                Continue standard engagement practices.</p>
+            </div>""", unsafe_allow_html=True)
+
+        # ── Probability Bar ───────────────────────────────────
+        st.markdown("<div style='height:16px'></div>", unsafe_allow_html=True)
+        st.markdown("<div class='section-header'>📊 Risk Probability Meter</div>", unsafe_allow_html=True)
+        st.progress(min(prob, 1.0))
+        st.caption(f"Attrition Probability: **{prob*100:.2f}%**")
+
+
+
+    else:
+        st.info("👈 Fill in the employee profile on the left and click **Predict Attrition Risk**.")
+        st.markdown("""
+        <div class="metric-card">
+            <h3>How This Works</h3>
+            <p style="font-size:0.95rem; color:#424242;">
+            1️⃣ Enter employee details in the sidebar<br>
+            2️⃣ Click the Predict button<br>
+            3️⃣ View risk prediction and HR advice<br>
+            4️⃣ Download the report
+            </p>
+        </div>""", unsafe_allow_html=True)
+
+
     
