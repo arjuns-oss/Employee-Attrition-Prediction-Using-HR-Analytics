@@ -298,5 +298,13 @@ with col_right:
         "Predictions must never be the sole basis for employment decisions."
     )
 
+# ── Footer ────────────────────────────────────────────────────
+st.markdown("""
+<div class="footer">
+    🏢 Employee Attrition Predictor &nbsp;|&nbsp; IBM HR Analytics &nbsp;|&nbsp; XGBoost Model<br>
+    <small>For academic and demonstration purposes only.</small>
+</div>
+""", unsafe_allow_html=True)
+
 
     
