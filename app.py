@@ -166,4 +166,54 @@ with st.sidebar:
 
     st.markdown("---")
     predict_btn = st.button("🔍 Predict Attrition Risk")
+
+
+# ── Main Layout ───────────────────────────────────────────────
+col_left, col_right = st.columns([3, 2])
+
+with col_left:
+
+    if predict_btn:
+        user_inputs = {
+            "Age"            : age,
+            "Department"     : department,
+            "OverTime"       : overtime,
+            "JobSatisfaction": job_sat,
+            "YearsAtCompany" : years_company,
+            "MonthlyIncome"  : monthly_income,
+        }
+
+        input_df = build_input_df(user_inputs)
+
+        try:
+            prob       = float(model.predict_proba(input_df)[0][1])
+            prediction = int(model.predict(input_df)[0])
+        except Exception as e:
+            st.error(f"Prediction error: {e}")
+            st.stop()
+
+        risk_label, risk_class, risk_icon = get_risk(prob)
+        pred_label = "Yes — Will Leave" if prediction == 1 else "No — Will Stay"
+
+        # ── Metric Cards ─────────────────────────────────────
+        m1, m2, m3 = st.columns(3)
+        m1.markdown(f"""
+        <div class="metric-card">
+            <h3>Prediction</h3>
+            <p>{"⚠️ Leave" if prediction==1 else "✅ Stay"}</p>
+        </div>""", unsafe_allow_html=True)
+
+        m2.markdown(f"""
+        <div class="metric-card">
+            <h3>Attrition Probability</h3>
+            <p>{prob*100:.1f}%</p>
+        </div>""", unsafe_allow_html=True)
+
+        m3.markdown(f"""
+        <div class="metric-card">
+            <h3>Risk Category</h3>
+            <p>{risk_icon} {risk_label}</p>
+        </div>""", unsafe_allow_html=True)
+
+        st.markdown("<div style='height:10px'></div>", unsafe_allow_html=True)
     
