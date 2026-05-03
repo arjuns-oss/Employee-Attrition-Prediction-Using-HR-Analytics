@@ -74,7 +74,7 @@ SHAP values used to interpret predictions
 | Random Forest       | ~96%     |
 | XGBoost             | ~95%     |
 
-### ✅ Best Model: **Random Forest**
+### Best Model: **Random Forest**
 - Achieved the highest accuracy (~96%)
 - Strong performance across different employee groups
 - Handles feature importance effectively
