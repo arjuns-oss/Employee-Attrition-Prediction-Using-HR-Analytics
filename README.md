@@ -11,7 +11,7 @@
 ---
 
 ## Problem Statement
-Employee attrition poses a significant challenge to organizations, leading to increased recruitment costs and loss of institutional knowledge[cite: 1]. By analyzing HR data, companies can identify patterns that lead to turnover[cite: 1]. The objective of this project is to develop a predictive system that identifies employees at high risk of leaving using demographic, financial, and performance-related data[cite: 1]. The project leverages statistical analysis and machine learning to provide actionable insights for HR departments[cite: 1].
+Employee attrition poses a significant challenge to organizations, leading to increased recruitment costs and loss of institutional knowledge. By analyzing HR data, companies can identify patterns that lead to turnover. The objective of this project is to develop a predictive system that identifies employees at high risk of leaving using demographic, financial, and performance-related data. The project leverages statistical analysis and machine learning to provide actionable insights for HR departments.
 
 The project follows the complete data science lifecycle:
 *   **Data Preprocessing**
@@ -33,7 +33,7 @@ The project follows the complete data science lifecycle:
 ---
 
 ## Dataset
-*   **Source:** IBM HR Analytics Employee Attrition & Performance (via Kaggle).
+*   **Source:** IBM HR Analytics Employee Attrition & Performance.
 *   **Features:** The dataset contains 35 features, including:
     *   **Demographics:** Age, Gender, Education, Marital Status.
     *   **Work History:** Years at Company, Job Role, Total Working Years.
