@@ -124,4 +124,4 @@ The best-performing model is deployed using **Streamlit**, featuring:
 
 
 ## Live Application
-link: https://employee-attrition-prediction-using-hr-analytics-k2toifoqkxqhn.streamlit.app/
+https://employee-attrition-prediction-using-hr-analytics-k2toifoqkxqhn.streamlit.app/
