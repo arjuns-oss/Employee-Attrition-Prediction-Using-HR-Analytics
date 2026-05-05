@@ -42,6 +42,19 @@ The project follows the complete data science lifecycle:
 
 ---
 
+---
+
+## 🛠️ Tech Stack
+
+| Category | Tools & Libraries |
+|---|---|
+| Language | Python 3.x |
+| ML Models | Logistic Regression, Random Forest, XGBoost |
+| Data Processing | Pandas, NumPy, Scikit-learn |
+| Visualisation | Matplotlib, Seaborn |
+| Deployment | Streamlit |
+| Version Control | Git & GitHub |
+
 ## Methodology
 
 ### 1. Data Preprocessing
