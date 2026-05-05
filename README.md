@@ -100,6 +100,15 @@ Models were evaluated based on:
 
 ---
 
+## ⚠️ Limitations
+
+* **Dataset Bias** — Trained only on IBM HR data and may not generalise to all organisations.
+* **Class Imbalance** — Only ~16% of employees left, which may cause underprediction in real-world use.
+* **Static Model** — Does not retrain automatically as new employee data becomes available.
+* **Limited Features** — Streamlit interface uses only 6 key features out of 30 for simplicity.
+* **No Real-Time Integration** — Predictions based on manually entered data, not live HR systems.
+* **Label Encoding** — Categorical variables were label encoded, which may introduce unintended ordinal relationships.
+
 ## Conclusion
 This project successfully identified the primary catalysts for employee turnover, with **Overtime** and **Low Monthly Income** being the most critical factors. By leveraging **XGBoost**, we achieved high predictive accuracy. The deployment of this system via **Streamlit** provides HR professionals with an interactive tool to assess employee risk in real-time, enabling proactive retention strategies.
 
