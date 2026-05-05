@@ -114,8 +114,10 @@ The best-performing model is deployed using **Streamlit**, featuring:
 ## Application Screenshots
 ### Home Interface
 <img width="1918" height="820" alt="image" src="https://github.com/user-attachments/assets/029e1591-29fe-447b-aac6-78af4270bcba" />
+
 ### Model Performance & explainability
 <img width="1569" height="746" alt="image" src="https://github.com/user-attachments/assets/baeb6746-5d72-48f8-892f-1adff8fe1067" />
+
 ### Model Information
 <img width="684" height="251" alt="image" src="https://github.com/user-attachments/assets/d13c20ae-df59-45ef-ae0e-c4a45d3bb3f0" />
 
