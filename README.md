@@ -116,6 +116,7 @@ The best-performing model is deployed using **Streamlit**, featuring:
 <img width="1918" height="820" alt="image" src="https://github.com/user-attachments/assets/029e1591-29fe-447b-aac6-78af4270bcba" />
 
 
+<img width="1569" height="746" alt="image" src="https://github.com/user-attachments/assets/baeb6746-5d72-48f8-892f-1adff8fe1067" />
 
 
 
