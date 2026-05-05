@@ -42,8 +42,6 @@ The project follows the complete data science lifecycle:
 
 ---
 
----
-
 ## 🛠️ Tech Stack
 
 | Category | Tools & Libraries |
