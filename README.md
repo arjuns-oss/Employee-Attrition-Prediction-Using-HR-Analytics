@@ -78,3 +78,5 @@ SHAP values used to interpret predictions
 - Achieved the highest accuracy (~96%)
 - Strong performance across different employee groups
 - Handles feature importance effectively
+
+### link: https://employee-attrition-prediction-using-hr-analytics-k2toifoqkxqhn.streamlit.app/
