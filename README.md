@@ -5,7 +5,7 @@
 | Name      | Reg No |
 | :---------| :------|
 | Arjun S   | 253105 |
-| Gayathri  | [Reg N |
+| Gayathri  | 253019 |
 | Sreehari  | [Reg N |
 
 ---
