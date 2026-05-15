@@ -6,7 +6,7 @@
 | :---------| :------|
 | Arjun S   | 253105 |
 | Gayathri  | 253019 |
-| V A Sreehari | [253313 |
+| V A Sreehari | 253313 |
 
 ---
 
